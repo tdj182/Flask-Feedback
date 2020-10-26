@@ -1,0 +1,16 @@
+.fa-trash {
+  border: none;
+  background-color: white;
+  color: red;
+  align-self: flex-end;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.btn-feedback {
+  margin-top: 25px;
+}

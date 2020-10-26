@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} All Feedback {% endblock %}
+
+{% block content %}
+
+{% for feedback in feedback %}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <div class='flex-row'>
+      <h5 class="card-title">{{feedback.title}}</h5>
+      {% if feedback.username == session['curr_user'] %}
+      <a href="/feedback/{{feedback.id}}/update" class="card-link fas fa-edit"></a>
+      <form action="/feedback/{{feedback.id}}/delete" method="POST">
+        <button class="card-link fas fa-trash"></button>
+      </form>
+      {% endif %}
+    </div>
+    <h6 class="card-subtitle mb-2 text-muted"><i>{{feedback.username}}</i></h6>
+    <p class="card-text">{{feedback.content}}</p>
+
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
